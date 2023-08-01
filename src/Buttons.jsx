@@ -2,9 +2,10 @@
 import './Buttons.css'
 
 function Buttons(props){
+
     return(
     <div className='buttons'>
-        <p>{props.number}</p>
+        <button onClick={props.onClick}>{props.number}</button>
     </div>
     )
 }

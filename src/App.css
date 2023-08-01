@@ -1,5 +1,9 @@
-.app{
+.buttons-area{
     background-color: rgb(61, 61, 61);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.input{
+    background-color: #575757;
 }
