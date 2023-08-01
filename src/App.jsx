@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Buttons from './Buttons'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='app'>
+      <Buttons number="C"/>
+      <Buttons number="()"/>
+      <Buttons number="%"/>
+      <Buttons number="/"/>
+      <Buttons number="7"/>
+      <Buttons number="8"/>
+      <Buttons number="9"/>
+      <Buttons number="x"/>
+      <Buttons number="4"/>
+      <Buttons number="5"/>
+      <Buttons number="6"/>
+      <Buttons number="-"/>
+      <Buttons number="1"/>
+      <Buttons number="2"/>
+      <Buttons number="3"/>
+      <Buttons number="+"/>
+      <Buttons number="+/-"/>
+      <Buttons number="0"/>
+      <Buttons number="."/>
+      <Buttons number="="/>
+    </div>
   )
 }
-
-export default App
