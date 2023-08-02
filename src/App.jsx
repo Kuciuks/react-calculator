@@ -13,22 +13,26 @@ export default function App() {
   console.log("The lenght is: ", count, "\nValue of the last element is: ", element)
 
   function Calculator(character){
-    
+
     switch(character){
       case "C":
-
+        setInput("")
         break;
       case "=":
-
+        setInput(eval(input))
         break;
       case "()":
-
         break;
       case "%":
-
+        setInput(eval(input/100))
         break;
       case "+/-":
-        setInput("(-" + input)
+        if(input.startsWith("(-")){
+          setInput(input.slice(2))
+        }
+        else{
+          setInput("(-" + input)
+        }
         break;
       default:
         setInput(input + character)
