@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './Styles/App.css'
 import Buttons from './Components/Buttons'
 import Input from './Components/Input'
@@ -12,7 +12,7 @@ export default function App() {
 
   let count = input.length; //The lenght of the input field
   let element = input[count-1];  //The last element in the input field
-  //console.log("The lenght is: ", count, "\nValue of the last element is: ", element)
+  console.log("The lenght is: ", count, "\nValue of the last element is: ", element)
 
 
   function Calculator(character){
@@ -49,10 +49,7 @@ export default function App() {
         setInput(eval(input/100))
         break;
       case "+/-":
-        if(input.startsWith("(-")){
-          setInput(input.slice(2))
-        }
-        else{
+        if(input == ""){
           setInput("(-" + input)
         }
         break;
