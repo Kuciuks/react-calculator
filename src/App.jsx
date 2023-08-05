@@ -1,8 +1,10 @@
 
 import React, { useState } from 'react'
-import './App.css'
-import Buttons from './Buttons'
-import Input from './Input'
+import './Styles/App.css'
+import Buttons from './Components/Buttons'
+import Input from './Components/Input'
+
+let parenthesis = 0; // count of parenthesis
 
 export default function App() {
 
@@ -10,18 +12,38 @@ export default function App() {
 
   let count = input.length; //The lenght of the input field
   let element = input[count-1];  //The last element in the input field
-  console.log("The lenght is: ", count, "\nValue of the last element is: ", element)
+  //console.log("The lenght is: ", count, "\nValue of the last element is: ", element)
+
 
   function Calculator(character){
 
     switch(character){
       case "C":
         setInput("")
+        parenthesis = 0;
         break;
       case "=":
         setInput(eval(input))
         break;
       case "()":
+        //if the input field is empty and the last element is not a number add '('
+        if(input == "" || element == "("  || element == "-"){
+          setInput(input + "(")
+          parenthesis++
+        }
+        //if the last element is a number and parenthesis count is not equal to 0, add ')' until the parenthesis count is equal to 0
+        else{
+          if(parenthesis != 0){
+            setInput(input + ")")
+            parenthesis--;
+          }
+          else{
+            setInput(input + "*(")
+            parenthesis++
+          }
+        }
+
+        console.log(parenthesis," count of parenthesis")
         break;
       case "%":
         setInput(eval(input/100))

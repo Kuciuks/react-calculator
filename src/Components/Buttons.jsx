@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import './Buttons.css'
+import '../Styles/Buttons.css'
 
 function Buttons(props){
 
