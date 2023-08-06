@@ -12,7 +12,7 @@ export default function App() {
 
   let count = input.length; //The lenght of the input field
   let element = input[count-1];  //The last element in the input field
-  console.log("The lenght is: ", count, "\nValue of the last element is: ", element)
+  //console.log("The lenght is: ", count, "\nValue of the last element is: ", element)
 
 
   function Calculator(character){
@@ -49,20 +49,46 @@ export default function App() {
         setInput(eval(input/100))
         break;
       case "+/-":
-        if(!isNaN(element)){
-          if(input[count-2] == "-" && input[count-3] == "("){
-            console.log("The last element is a number: ",element,"\nAnd the two values before it are: ",input[count-2], " and ",input[count-3])
-            let str = input.slice(0, count-3)
-            setInput(str + element)
+
+        //If the input field is empty add '(-'
+        if(input == ""){
+          setInput(input + "(-")
+          parenthesis++
+        }
+        else{  
+          if(!isNaN(element)){
+            if(input[count-2] == "-" && input[count-3] == "("){
+              let str = input.slice(0, count-3)
+              setInput(str + element)
+              parenthesis--
+              //console.log("The last element is a number: ",element,"\nAnd the two values before it are: ",input[count-2], " and ",input[count-3])
+            }
+            else{
+              let str = input.slice(0, count-1)
+              setInput(str + "(-" + element)
+              parenthesis++
+              //console.log("The last element is a number: ",element,"\nAnd the two values before it are not (-")
+            }
           }
           else{
-            console.log("The last element is a number: ",element,"\nAnd the two values before it are not (-")
-            let str = input.slice(0, count-1)
-            setInput(str + "(-" + element)
-            //console.log("the input is: ",str," and the sliced of part is ",element)
+            if(input.length < 3){
+              setInput("")
+              parenthesis--
+            }
+            else{
+              if(input[count-1] == "-" && input[count-2] == "("){
+                let str = input.slice(0,count-2)
+                setInput(str)
+                parenthesis--
+                console.log("not a number the string is", str)
+              }else{
+                setInput(input + "(-")
+                parenthesis++
+                console.log("AA")
+              }
+              console.log("The last element is not a number: ",element)
+            }
           }
-        }else{
-          console.log("The last element is not a number: ",element)
         }
         break;
       default:
