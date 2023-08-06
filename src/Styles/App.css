@@ -26,26 +26,26 @@ html{
 @media only screen and (min-width: 480px){
     .calculator{
         width: 250px;
-        height: 150px;
+        height: 250px;
     }
 }
 @media only screen and (min-width: 768px){
     .calculator{
         width: 350px;
-        height: 200px;
+        height: 350px;
     }
 }
 
 @media only screen and (min-width: 1024px){
     .calculator{
         width: 450px;
-        height: 250px;
+        height: 450px;
     }
 }
 
 @media only screen and (min-width: 1280px){
     .calculator{
         width: 550px;
-        height: 350px;
+        height: 550px;
     }
 }
