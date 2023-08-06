@@ -43,14 +43,26 @@ export default function App() {
           }
         }
 
-        console.log(parenthesis," count of parenthesis")
+        //console.log(parenthesis," count of parenthesis")
         break;
       case "%":
         setInput(eval(input/100))
         break;
       case "+/-":
-        if(input == ""){
-          setInput("(-" + input)
+        if(!isNaN(element)){
+          if(input[count-2] == "-" && input[count-3] == "("){
+            console.log("The last element is a number: ",element,"\nAnd the two values before it are: ",input[count-2], " and ",input[count-3])
+            let str = input.slice(0, count-3)
+            setInput(str + element)
+          }
+          else{
+            console.log("The last element is a number: ",element,"\nAnd the two values before it are not (-")
+            let str = input.slice(0, count-1)
+            setInput(str + "(-" + element)
+            //console.log("the input is: ",str," and the sliced of part is ",element)
+          }
+        }else{
+          console.log("The last element is not a number: ",element)
         }
         break;
       default:
