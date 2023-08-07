@@ -100,7 +100,7 @@ export default function App() {
   return (
     <div className='calculator'>  
       <div className='input'>
-        <Input input={input}/>
+        <Input input={input} />
       </div>
       <div className='buttons-area'>
         <Buttons number="C" onClick={()=>Calculator("C")}/>

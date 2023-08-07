@@ -2,7 +2,7 @@
 function Input(props){
     return(
         <div>
-            <p>{props.input}</p>
+            <p>{props.input !== "" ? props.input : "|"}</p>
         </div>
     )
 }
