@@ -99,7 +99,7 @@ export default function App() {
 
   return (
     <div className='calculator'>  
-      <div className='input'>
+      <div>
         <Input input={input} />
       </div>
       <div className='buttons-area'>

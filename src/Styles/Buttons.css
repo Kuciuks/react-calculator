@@ -15,18 +15,22 @@ button{
     color: white;
     width: 25px;
     height: 20px;
+    box-shadow: -1px 1px 1px grey;
 }
+
 
 @media only screen and (min-width: 480px){
     button{
         width: 45px;
         height: 35px;
+        font-size: 20px;
     }
 }
 @media only screen and (min-width: 768px){
     button{
         width: 65px;
         height: 45px;
+        font-size: 30px;
     }
 }
 
@@ -34,6 +38,7 @@ button{
     button{
         width: 85px;
         height: 55px;
+        font-size: 40px;
     }
 }
 
@@ -41,5 +46,6 @@ button{
     button{
         width: 105px;
         height: 75px;
+        font-size: 50px;
     }
 }
