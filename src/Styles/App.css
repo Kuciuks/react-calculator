@@ -13,6 +13,13 @@
 .calculator{
     width: 150px;
     height: 150px;
+    margin-bottom: 30px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 html{
@@ -20,19 +27,20 @@ html{
     display: flex;
     align-items: center;
     width: 100vw;
-    height: 100vh;
 }
 
 @media only screen and (min-width: 480px){
     .calculator{
         width: 250px;
         height: 250px;
+        margin-bottom: 45px;
     }
 }
 @media only screen and (min-width: 768px){
     .calculator{
         width: 350px;
         height: 350px;
+        margin-bottom: 60px;
     }
 }
 
@@ -40,6 +48,7 @@ html{
     .calculator{
         width: 450px;
         height: 450px;
+        margin-bottom: 75px;
     }
 }
 
@@ -47,5 +56,6 @@ html{
     .calculator{
         width: 550px;
         height: 550px;
+        margin-bottom: 100px;
     }
 }

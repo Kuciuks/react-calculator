@@ -2,6 +2,7 @@ import { useContext, createContext} from "react";
    
 const HistoryContext = createContext()
 
+//Receives the children wrapped in HistoryContext in the App.jsx and a prop
 const HistoryProvider = ({children, item}) =>{
     
     return(

@@ -1,6 +1,7 @@
 
 import { useState } from 'react'
 import './Styles/App.css'
+import './Styles/HistoryList.css'
 import Buttons from './Components/Buttons'
 import Input from './Components/Input'
 import HistoryProvider from './Providers/HistoryProvider'
@@ -8,7 +9,7 @@ import HistoryList from './Components/HistoryList'
 
 let parenthesis = 0; // count of parenthesis
 
-let history = ["10+10=20"];
+let history = []; // stores the calculation history
 
 export default function App() {
 
@@ -115,7 +116,7 @@ export default function App() {
 
   return (
 
-    <>
+    <div className='container'>
       <div className='calculator'>  
         <div>
           <Input input={input} />
@@ -143,11 +144,11 @@ export default function App() {
           <Buttons number="=" onClick={()=>Calculator("=")}/>
         </div>
       </div>
-      <div>
+      <div className='historyList'>
         <HistoryProvider item={history}>
           <HistoryList/>
         </HistoryProvider>
       </div>
-    </>
+    </div>
   )
 }
