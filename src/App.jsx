@@ -12,7 +12,6 @@ export default function App() {
 
   let count = input.length; //The lenght of the input field
   let element = input[count-1];  //The last element in the input field
-  //console.log("The lenght is: ", count, "\nValue of the last element is: ", element)
 
 
   function Calculator(character){
