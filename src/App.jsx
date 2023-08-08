@@ -42,8 +42,6 @@ export default function App() {
             parenthesis++
           }
         }
-
-        //console.log(parenthesis," count of parenthesis")
         break;
       case "%":
         setInput(eval(input/100))
@@ -55,38 +53,53 @@ export default function App() {
           setInput(input + "(-")
           parenthesis++
         }
+
+        //If the input field is not empty
         else{  
+          //If the last element is a number
           if(!isNaN(element)){
+            //If the two elements that come before the number are '(-', remove '(-'
             if(input[count-2] == "-" && input[count-3] == "("){
               let str = input.slice(0, count-3)
               setInput(str + element)
               parenthesis--
-              //console.log("The last element is a number: ",element,"\nAnd the two values before it are: ",input[count-2], " and ",input[count-3])
             }
+
+            //Add '(-'
             else{
               let str = input.slice(0, count-1)
               setInput(str + "(-" + element)
               parenthesis++
-              //console.log("The last element is a number: ",element,"\nAnd the two values before it are not (-")
             }
           }
+
+          //If the last element is not a number
           else{
-            if(input.length < 3){
+            //If the input field is less than 3 elements, this is for use case where nothing is typed in, but we need to toggle between showing '(-'
+            if(input.length < 3 && element != "("){
               setInput("")
               parenthesis--
             }
+
+            //Input field is more than 3 elements
             else{
+              //If the last two elements are '(-', remove '(-'
               if(input[count-1] == "-" && input[count-2] == "("){
                 let str = input.slice(0,count-2)
                 setInput(str)
                 parenthesis--
-                console.log("not a number the string is", str)
-              }else{
+              }
+
+              //If the last element is ')'
+              else if(input[count-1] == ")"){
+                setInput(input + "*(-")
+              }
+
+              //If the last two elements are not '(-', add '(-'
+              else{
                 setInput(input + "(-")
                 parenthesis++
-                console.log("AA")
               }
-              console.log("The last element is not a number: ",element)
             }
           }
         }
