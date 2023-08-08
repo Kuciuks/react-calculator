@@ -3,8 +3,12 @@ import { useState } from 'react'
 import './Styles/App.css'
 import Buttons from './Components/Buttons'
 import Input from './Components/Input'
+import HistoryProvider from './Providers/HistoryProvider'
+import HistoryList from './Components/HistoryList'
 
 let parenthesis = 0; // count of parenthesis
+
+let history = ["10+10=20"];
 
 export default function App() {
 
@@ -12,7 +16,6 @@ export default function App() {
 
   let count = input.length; //The lenght of the input field
   let element = input[count-1];  //The last element in the input field
-
 
   function Calculator(character){
 
@@ -23,6 +26,7 @@ export default function App() {
         break;
       case "=":
         setInput(eval(input))
+        history.push(input + "=" + eval(input))
         break;
       case "()":
         //if the input field is empty and the last element is not a number add '('
@@ -110,32 +114,40 @@ export default function App() {
   }
 
   return (
-    <div className='calculator'>  
+
+    <>
+      <div className='calculator'>  
+        <div>
+          <Input input={input} />
+        </div>
+        <div className='buttons-area'>
+          <Buttons number="C" onClick={()=>Calculator("C")}/>
+          <Buttons number="()" onClick={()=>Calculator("()")}/>
+          <Buttons number="%" onClick={()=>Calculator("%")}/>
+          <Buttons number="/" onClick={()=>Calculator("/")}/>
+          <Buttons number="7" onClick={()=>Calculator(7)}/>
+          <Buttons number="8" onClick={()=>Calculator(8)}/>
+          <Buttons number="9" onClick={()=>Calculator(9)}/>
+          <Buttons number="x" onClick={()=>Calculator("*")}/>
+          <Buttons number="4" onClick={()=>Calculator(4)}/>
+          <Buttons number="5" onClick={()=>Calculator(5)}/>
+          <Buttons number="6" onClick={()=>Calculator(6)}/>
+          <Buttons number="-" onClick={()=>Calculator("-")}/>
+          <Buttons number="1" onClick={()=>Calculator(1)}/>
+          <Buttons number="2" onClick={()=>Calculator(2)}/>
+          <Buttons number="3" onClick={()=>Calculator(3)}/>
+          <Buttons number="+" onClick={()=>Calculator("+")}/>
+          <Buttons number="+/-" onClick={()=>Calculator("+/-")}/>
+          <Buttons number="0" onClick={()=>Calculator(0)}/>
+          <Buttons number="." onClick={()=>Calculator(".")}/>
+          <Buttons number="=" onClick={()=>Calculator("=")}/>
+        </div>
+      </div>
       <div>
-        <Input input={input} />
+        <HistoryProvider item={history}>
+          <HistoryList/>
+        </HistoryProvider>
       </div>
-      <div className='buttons-area'>
-        <Buttons number="C" onClick={()=>Calculator("C")}/>
-        <Buttons number="()" onClick={()=>Calculator("()")}/>
-        <Buttons number="%" onClick={()=>Calculator("%")}/>
-        <Buttons number="/" onClick={()=>Calculator("/")}/>
-        <Buttons number="7" onClick={()=>Calculator(7)}/>
-        <Buttons number="8" onClick={()=>Calculator(8)}/>
-        <Buttons number="9" onClick={()=>Calculator(9)}/>
-        <Buttons number="x" onClick={()=>Calculator("*")}/>
-        <Buttons number="4" onClick={()=>Calculator(4)}/>
-        <Buttons number="5" onClick={()=>Calculator(5)}/>
-        <Buttons number="6" onClick={()=>Calculator(6)}/>
-        <Buttons number="-" onClick={()=>Calculator("-")}/>
-        <Buttons number="1" onClick={()=>Calculator(1)}/>
-        <Buttons number="2" onClick={()=>Calculator(2)}/>
-        <Buttons number="3" onClick={()=>Calculator(3)}/>
-        <Buttons number="+" onClick={()=>Calculator("+")}/>
-        <Buttons number="+/-" onClick={()=>Calculator("+/-")}/>
-        <Buttons number="0" onClick={()=>Calculator(0)}/>
-        <Buttons number="." onClick={()=>Calculator(".")}/>
-        <Buttons number="=" onClick={()=>Calculator("=")}/>
-      </div>
-    </div>
+    </>
   )
 }
